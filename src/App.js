@@ -1,11 +1,13 @@
-import ReceiptIcon from '@mui/icons-material/Receipt';
+import { Route, Routes } from 'react-router-dom';
+import Dashboard from './components/Dashboard';
+import Login from './components/Login';
 
 function App() {
   return (
-    <div>
-      <h1 className="text-blue-700 text-7xl">Sales App</h1>
-      <ReceiptIcon/>
-    </div>
+    <Routes>
+      <Route path='/' element={<Login/>} />
+      <Route path='/dashboard' element={<Dashboard/>} />
+    </Routes>
   );
 }
 
