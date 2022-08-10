@@ -1,38 +1,57 @@
-// import { BarChartTwoTone, ProductionQuantityLimitsTwoTone, SellTwoTone } from '@mui/icons-material'
+import { ContentCopy, Info, Money, Sell } from '@mui/icons-material'
 import React from 'react'
+import { Link } from 'react-router-dom'
+import Footer from './Footer'
+import Header from './Header'
 import Sidebar from './Sidebar'
 
 const Dashboard = () => {
   return (
-    <div className='flex items-start'>
-      {/* Sidebar */}
-      <Sidebar/>
+    <div className='flex items-start w-screen h-screen'>
+      <div className='2xl:w-[14%] w-[18%] z-10'>
+        <Sidebar active={'dashboard'}/>
+      </div>
       {/* right-side content */}
-      <div className='bg-[#f4f4f4] w-screen h-screen'>
-        {/* title */}
-        <div className='bg-blue-50 flex justify-center p-5 shadow-md z-10'>
-            <h1 className='text-3xl text-slate-600 font-semibold uppercase'>Sales App</h1>
+      <div className='bg-[#f4f4f4] 2xl:w-[86%] w-[82%] min-h-screen flex flex-col'>
+        {/* away from footer */}
+        <div className='flex-1'>
+          <Header title={'Dashboard'}/>
+          {/* navs */}
+          <div className='mx-5 mt-2'>
+            <div className='flex justify-center items-center p-2 gap-x-6'>
+              {/* products */}
+              <Link to={'/products'}>
+                <div className='nav-container flex flex-col items-center bg-purple-50 p-10 w-72 2xl:w-80 2xl:p-12 rounded-md backdrop-blur-md shadow-xl hover:bg-purple-100 cursor-pointer'>
+                  <Sell className='nav-icons text-purple-700 mb-2'/>
+                  <h1 className='text-2xl font-semibold text-purple-500'>Products</h1>
+                </div>
+              </Link>
+              {/* sales */}
+              <Link to={'/sales'}>
+                <div className='nav-container flex flex-col items-center bg-cyan-50 p-10 w-72 2xl:w-80 2xl:p-12 rounded-md backdrop-blur-md shadow-xl hover:bg-cyan-100 cursor-pointer'>
+                  <Money className='nav-icons text-cyan-700 mb-2'/>
+                  <h1 className='text-2xl font-semibold text-cyan-500'>Sales</h1>
+                </div>
+              </Link>
+              {/* records */}
+              <Link to={'/records'}>
+                <div className='nav-container flex flex-col items-center bg-indigo-50 p-10 w-72 2xl:w-80 2xl:p-12 rounded-md backdrop-blur-md shadow-xl hover:bg-indigo-100 cursor-pointer'>
+                  <ContentCopy className='nav-icons text-indigo-700 mb-2'/>
+                  <h1 className='text-2xl font-semibold text-indigo-500'>Records</h1>
+                </div>
+              </Link>
+              {/* About */}
+              <Link to={'/records'}>
+                <div className='nav-container flex flex-col items-center bg-red-50 p-10 w-72 2xl:w-80 2xl:p-12 rounded-md backdrop-blur-md shadow-xl hover:bg-red-100 cursor-pointer'>
+                  <Info className='nav-icons text-red-700 mb-2'/>
+                  <h1 className='text-2xl font-semibold text-red-500'>About</h1>
+                </div>
+              </Link>
+            </div>
+          </div>
         </div>
-        {/* section tiles */}
-        {/* <div className='flex flex-wrap justify-evenly items-center p-5'>
-            <div className='bg-fuchsia-300 flex flex-col justify-center items-center shadow-xl w-[400px] h-[220px] p-5 hover:scale-90 transition-all duration-300 cursor-pointer rounded-md'>
-                <ProductionQuantityLimitsTwoTone fontSize={'large'}/>
-                <h1 className='text-2xl'>Products</h1>
-            </div>
-            <div className='bg-purple-300 flex flex-col justify-center items-center shadow-xl w-[400px] h-[220px] p-5 hover:scale-90 transition-all duration-300 cursor-pointer rounded-md'>
-                <SellTwoTone fontSize={'large'}/>
-                <h1 className='text-2xl'>Sales</h1>
-            </div>
-            <div className='bg-orange-300 flex flex-col justify-center items-center shadow-xl w-[400px] h-[220px] p-5 hover:scale-90 transition-all duration-300 cursor-pointer rounded-md'>
-                <BarChartTwoTone fontSize={'large'}/>
-                <h1 className='text-2xl'>Products</h1>
-            </div>
-        </div> */}
-        {/* other stuff */}
-        <div className='flex flex-col justify-center items-center mt-5'>
-            <img className='w-[840px]' src='../images/construction.png' alt='construction'/>
-            <h1 className='text-4xl text-blue-900 font-semibold'>Site is Under Construction</h1>
-        </div>
+        {/* footer */}
+        <Footer/>
       </div>
     </div>
   )

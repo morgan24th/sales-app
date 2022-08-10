@@ -1,36 +1,48 @@
-import { ChatSharp, Dashboard, ProductionQuantityLimits, Sell } from '@mui/icons-material'
+import { AccountCircle, ContentCopy, Dashboard, Money, Sell } from '@mui/icons-material'
 import React from 'react'
+import { Link } from 'react-router-dom'
+import '../styles/support.css'
 
-const Sidebar = () => {
+const Sidebar = ({active}) => {
   return (
-    <div className='bg-blue-50 w-1/6 h-screen flex shadow-2xl items-center z-10'>
-      <div className='w-full'>
-        {/* title */}
-        <div className='flex justify-center my-6'>
-          <h1 className='text-3xl text-blue-900 font-semibold uppercase'>Sales App</h1>
+    <div>
+      <div className='w-[280px] bg-indigo-900 h-screen flex flex-col items-center'>
+        {/* hero */}
+        <div className='flex flex-col p-5 items-center relative w-full mb-3'>
+          <AccountCircle className='user text-white'/>
+          <h1 className='text-white text-3xl font-semibold mb-5'>Morgan</h1>
+          <hr className='w-full'/>
         </div>
-        {/* links */}
-        <div className='text-xl font-semibold uppercase'>
+        {/* navs */}
+        <div className='w-[240px] text-white text-xl'>
           {/* dashboard */}
-          <div className='flex items-center border-l-8 border-blue-300 text-white my-2 mx-3 p-6 bg-blue-500 hover:bg-blue-500 rounded-sm transition-all duration-300 cursor-pointer'>
-            <Dashboard className='icons'/>
-            <h1 className='ml-[2vw]'>Dashboard</h1>
-          </div>
+          <Link to={'/dashboard'}>
+            <div className={`flex items-center rounded hover:bg-[rgba(255,255,255,0.2)] cursor-pointer transition-all duration-300 px-5 py-3 mb-2 ${active === 'dashboard' ? 'backdrop-blur-md' : ''} ${active === 'dashboard' ? 'bg-[rgba(255,255,255,0.2)]' : ''} ${active === 'dashboard' ? 'shadow-xl' : ''}`}>
+              <Dashboard/>
+              <h1 className='ml-[2vw]'>Dashboard</h1>
+            </div>
+          </Link>
           {/* products */}
-          <div className='flex items-center border-l-8 border-blue-300 text-blue-800 hover:text-white my-2 mx-3 p-6 bg-blue-200 hover:bg-blue-400 rounded-sm transition-all duration-300 cursor-pointer'>
-            <ProductionQuantityLimits/>
-            <h1 className='ml-[2vw]'>Products</h1>
-          </div>
+          <Link to={'/products'}>
+            <div className={`flex items-center rounded hover:bg-[rgba(255,255,255,0.2)] cursor-pointer transition-all duration-300 px-5 py-3 mb-2 ${active === 'records' ? 'backdrop-blur-md' : ''} ${active === 'products' ? 'bg-[rgba(255,255,255,0.2)]' : ''} ${active === 'products' ? 'shadow-xl' : ''}`}>
+              <Sell/>
+              <h1 className='ml-[2vw]'>Products</h1>
+            </div>
+          </Link>
           {/* sales */}
-          <div className='flex items-center border-l-8 border-blue-300 text-blue-800 hover:text-white my-2 mx-3 p-6 bg-blue-200 hover:bg-blue-400 rounded-sm transition-all duration-300 cursor-pointer'>
-            <Sell/>
-            <h1 className='ml-[2vw]'>Sales</h1>
-          </div>
-          {/* statistics */}
-          <div className='flex items-center border-l-8 border-blue-300 text-blue-800 hover:text-white my-2 mx-3 p-6 bg-blue-200 hover:bg-blue-400 rounded-sm transition-all duration-300 cursor-pointer'>
-            <ChatSharp/>
-            <h1 className='ml-[2vw]'>Statistics</h1>
-          </div>
+          <Link to={'/sales'}>
+            <div className={`flex items-center rounded hover:bg-[rgba(255,255,255,0.2)] cursor-pointer transition-all duration-300 px-5 py-3 mb-2 ${active === 'sales' ? 'backdrop-blur-md' : ''} ${active === 'sales' ? 'bg-[rgba(255,255,255,0.2)]' : ''} ${active === 'sales' ? 'shadow-xl' : ''}`}>
+              <Money/>
+              <h1 className='ml-[2vw]'>Sales</h1>
+            </div>
+          </Link>
+          {/* records */}
+          <Link to={'/records'}>
+            <div className={`flex items-center rounded hover:bg-[rgba(255,255,255,0.2)] cursor-pointer transition-all duration-300 px-5 py-3 mb-2 ${active === 'records' ? 'backdrop-blur-md' : ''} ${active === 'records' ? 'bg-[rgba(255,255,255,0.2)]' : ''} ${active === 'records' ? 'shadow-xl' : ''}`}>
+              <ContentCopy/>
+              <h1 className='ml-[2vw]'>Records</h1>
+            </div>
+          </Link>
         </div>
       </div>
     </div>

@@ -1,3 +1,12 @@
-.icons{
-    font-size: 78px !important;
+.user{
+    font-size: 128px !important;
+}
+
+.nav-icons{
+    font-size: 50px !important;
+    transition: .3s ease-in-out !important;
+}
+
+.nav-container:hover .nav-icons{
+    transform: scale(0.8) !important;
 }
