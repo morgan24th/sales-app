@@ -5,13 +5,11 @@ import Sidebar from './Sidebar'
 
 const Sales = () => {
   return (
-    <div className='flex items-start w-screen h-screen'>
+    <div className='flex'>
       {/* sidebar */}
-      <div className='2xl:w-[14%] w-[18%] z-10'>
-        <Sidebar active={'sales'}/>
-      </div>
+      <Sidebar active={'sales'}/>
       {/* content-details */}
-      <div className='bg-[#f4f4f4] 2xl:w-[86%] w-[82%] min-h-screen flex flex-col'>
+      <div className='bg-[#f4f4f4] min-h-screen flex flex-col w-full'>
         <div className='flex-1'>
           <Header title={'Sales'}/>
         </div>
